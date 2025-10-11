@@ -44,7 +44,7 @@ export const Header = () => {
             </a>
           </nav>
 
-          <Link href="/auth">
+          <Link href="/auth/sign-in">
             <Button variant="default" size="default">
               Sign in
             </Button>
