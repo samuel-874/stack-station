@@ -18,18 +18,19 @@ export const Integration = () => {
           {/* Left Content */}
           <div className="animate-fade-in">
             <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Empowering Top Companies
+              Integrations that matter
               <span className="block text-primary mt-2">
-                with Seamless Integrations
+                Paystack, accounting exports & webhooks
               </span>
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Connect with industry-leading platforms and tools to streamline
-              your manufacturing workflow. Our robust API enables effortless
-              integration with your existing systems.
+              Connect Stack-Station to Paystack for card and DVA payments,
+              export CSVs for reconciliation, and receive webhook events for
+              automated bookkeeping. Our API and Zapier-ready endpoints make
+              integrations simple.
             </p>
             <Button variant="accent" size="lg" className="group">
-              View All Integrations
+              View Integrations
             </Button>
           </div>
 

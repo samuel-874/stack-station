@@ -12,14 +12,14 @@ export const Footer = () => {
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
                 <span className="text-accent-foreground font-bold text-sm">
-                  F
+                  SS
                 </span>
               </div>
-              <span className="text-xl font-bold">Firstnext</span>
+              <span className="text-xl font-bold">Stack-Station</span>
             </div>
             <p className="text-background/70 text-sm leading-relaxed">
-              Cutting-edge manufacturing solutions powered by the latest
-              technology. Transforming industries one innovation at a time.
+              Manage time-based desk and room rentals, process card & DVA
+              payments, and reconcile daily sales with confidence.
             </p>
           </div>
 
@@ -63,7 +63,7 @@ export const Footer = () => {
                   href="#production"
                   className="text-background/70 hover:text-accent transition-colors"
                 >
-                  Production Solutions
+                  Reservations & Check-ins
                 </a>
               </li>
               <li>
@@ -71,7 +71,7 @@ export const Footer = () => {
                   href="#quality"
                   className="text-background/70 hover:text-accent transition-colors"
                 >
-                  Quality Control
+                  Payments & DVA
                 </a>
               </li>
               <li>
@@ -79,7 +79,7 @@ export const Footer = () => {
                   href="#analytics"
                   className="text-background/70 hover:text-accent transition-colors"
                 >
-                  Analytics
+                  Reporting & Exports
                 </a>
               </li>
             </ul>
@@ -120,7 +120,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-background/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-background/60 text-sm">
-            © {currentYear} Firstnext. All rights reserved.
+            © {currentYear} Stack-Station. All rights reserved.
           </p>
 
           <div className="flex items-center space-x-2">

@@ -3,24 +3,15 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Map Tailwind tokens to CSS variables */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
+  /* Map to Roboto font variables provided by next/font */
+  --font-roboto: var(--font-roboto);
+  --font-roboto-mono: var(--font-roboto-mono);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -43,99 +34,123 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/*
-  Theme palette (customized)
-  - Primary: Teal Green      #00BFA6  (buttons, icons, highlights)
-  - Secondary: Dark Navy     #0A2B3C  (background sections)
-  - Accent: Light Mint      #D9F9F3  (info cards, subtle highlights)
-  - Neutrals:
-    - White                #FFFFFF
-    - Light Gray           #F5F6F7
-    - Dark Gray            #1E1E1E
-
-  These values are defined as CSS variables in :root and overridden in
-  .dark to provide a consistent light/dark theme across components.
-*/
-
-:root {
-  --radius: 0.625rem;
-  /* Neutrals */
-  --background: #ffffff; /* White background for light mode */
-  --foreground: #1e1e1e; /* Dark gray text */
-  --card: #ffffff;
-  --card-foreground: #1e1e1e;
-  --popover: #ffffff;
-  --popover-foreground: #1e1e1e;
-  /* Primary / Secondary / Accent */
-  --primary: #2f5755; /* Primary updated to #2F5755 per user request */
-  --primary-foreground: #ffffff;
-  --secondary: #0a2b3c; /* Dark Navy / Deep Blue-Green */
-  --secondary-foreground: #ffffff;
-  --muted: #f5f6f7; /* Light Gray */
-  --muted-foreground: #1e1e1e;
-  --accent: #d9f9f3; /* Light Mint Green */
-  --accent-foreground: #0a2b3c;
-  /* Other */
-  --destructive: #e02424;
-  --border: #e6e7e8; /* subtle light border */
-  --input: #f5f6f7;
-  --ring: #2f5755;
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: #f5f6f7;
-  --sidebar-foreground: #1e1e1e;
-  --sidebar-primary: #2f5755;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #d9f9f3;
-  --sidebar-accent-foreground: #0a2b3c;
-  --sidebar-border: #e6e7e8;
-  --sidebar-ring: #2f5755;
-}
-
-.dark {
-  /* Dark mode neutrals */
-  --background: #0a2b3c; /* use dark navy as background for dark mode */
-  --foreground: #f5f6f7; /* light text */
-  --card: #0e3a49;
-  --card-foreground: #f5f6f7;
-  --popover: #0e3a49;
-  --popover-foreground: #f5f6f7;
-  /* Primary / Secondary / Accent */
-  --primary: #2f5755;
-  --primary-foreground: #ffffff;
-  --secondary: #07202a; /* slightly darker for contrast */
-  --secondary-foreground: #d9f9f3;
-  --muted: #0a2b3c;
-  --muted-foreground: #e6e7e8;
-  --accent: #d9f9f3;
-  --accent-foreground: #07202a;
-  --destructive: #ff6b6b;
-  --border: rgba(255, 255, 255, 0.06);
-  --input: rgba(255, 255, 255, 0.04);
-  --ring: #2f5755;
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: #07202a;
-  --sidebar-foreground: #f5f6f7;
-  --sidebar-primary: #2f5755;
-  --sidebar-primary-foreground: #07202a;
-  --sidebar-accent: #d9f9f3;
-  --sidebar-accent-foreground: #07202a;
-  --sidebar-border: rgba(255, 255, 255, 0.06);
-  --sidebar-ring: #2f5755;
-}
-
+/* 🎨 Design System - HEX Color Theme */
 @layer base {
+  :root {
+    --background: #ffffff; /* White background */
+    --foreground: #0b1c1c; /* Deep teal-gray text */
+
+    --card: #ffffff;
+    --card-foreground: #0b1c1c;
+
+    --popover: #ffffff;
+    --popover-foreground: #0b1c1c;
+
+    --primary: #123d3d; /* Dark Teal */
+    --primary-foreground: #ffffff; /* White text on primary */
+
+    --secondary: #d3ede0; /* Soft minty green */
+    --secondary-foreground: #0b1c1c;
+
+    --muted: #f5f7f8; /* Light neutral gray */
+    --muted-foreground: #597777; /* Muted gray-green text */
+
+    --accent: #f59e0b; /* Warm amber/orange accent */
+    --accent-foreground: #ffffff; /* White text on accent */
+
+    --destructive: #ef4444; /* Red (destructive) */
+    --destructive-foreground: #ffffff;
+
+    --border: #e1e6e6; /* Subtle gray border */
+    --input: #e1e6e6; /* Light input background */
+    --ring: #123d3d; /* Teal ring color */
+
+    --radius: 0.75rem;
+
+    --hero-gradient: linear-gradient(135deg, #123d3d, #195050);
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --card-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .dark {
+    --background: #0b1c1c; /* Deep teal background */
+    --foreground: #f9fafb; /* Light text */
+
+    --card: #102626;
+    --card-foreground: #f9fafb;
+
+    --popover: #102626;
+    --popover-foreground: #f9fafb;
+
+    --primary: #f9fafb; /* White primary for contrast */
+    --primary-foreground: #0b1c1c;
+
+    --secondary: #1c3c3c; /* Darker teal for contrast */
+    --secondary-foreground: #f9fafb;
+
+    --muted: #1c3c3c;
+    --muted-foreground: #a7b3b3;
+
+    --accent: #f59e0b; /* Keep accent consistent */
+    --accent-foreground: #ffffff;
+
+    --destructive: #dc2626; /* Slightly deeper red for dark mode */
+    --destructive-foreground: #f9fafb;
+
+    --border: #1e2c2c;
+    --input: #1e2c2c;
+    --ring: #f9fafb;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+    /* Use Roboto as the primary sans font, fall back to system fonts */
+    font-family: var(
+      --font-roboto,
+      "Roboto",
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      "Segoe UI",
+      Roboto,
+      "Helvetica Neue",
+      Arial,
+      "Noto Sans",
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol"
+    );
+    /* Use Roboto Mono for monospaced content */
+    font-feature-settings: "cv01";
+  }
+
+  /* Headings, bold text, and product names should use Roboto Mono */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b,
+  .product-name {
+    font-family: var(
+      --font-roboto-mono,
+      "Roboto Mono",
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      "Roboto",
+      "Helvetica Neue",
+      monospace
+    );
+    /* Use a medium weight for headings to keep them prominent */
+    font-weight: 500;
+    letter-spacing: -0.01em;
   }
 }

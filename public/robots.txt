@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Block access to admin areas (when implemented)
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /api/
+
+# Allow important pages
+Allow: /api/sitemap.xml
+
+# Sitemap location
+Sitemap: https://stack-station.com/sitemap.xml
+
+# Crawl delay to be respectful (optional)
+Crawl-delay: 1

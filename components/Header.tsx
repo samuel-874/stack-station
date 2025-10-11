@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const Header = () => {
   return (
@@ -8,10 +9,12 @@ export const Header = () => {
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">
-                F
+                SS
               </span>
             </div>
-            <span className="text-xl font-bold text-foreground">Firstnext</span>
+            <span className="text-xl font-bold text-foreground">
+              Stack-Station
+            </span>
           </div>
 
           <nav className="hidden md:flex items-center space-x-8">
@@ -41,9 +44,11 @@ export const Header = () => {
             </a>
           </nav>
 
-          <Button variant="default" size="default">
-            SIGN IN
-          </Button>
+          <Link href="/auth">
+            <Button variant="default" size="default">
+              Sign in
+            </Button>
+          </Link>
         </div>
       </div>
     </header>

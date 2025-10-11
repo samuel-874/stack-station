@@ -2,19 +2,19 @@ import { CheckCircle2, TrendingUp, Users, BarChart3 } from "lucide-react";
 
 const benefits = [
   {
-    title: "Boosting Quality in Tech",
+    title: "Time-based pricing & segments",
     description:
-      "Our advanced technology ensures superior quality standards across all manufacturing processes, delivering exceptional results.",
+      "Create floors and segments (Regular, VIP, Private) and set per-segment time bands and prices so your front desk charges consistently.",
   },
   {
-    title: "Optimization Production Process",
+    title: "Paystack & Dedicated Virtual Accounts (DVA)",
     description:
-      "Streamlined workflows and intelligent automation maximize efficiency, reducing costs while increasing output quality.",
+      "Accept card payments or generate DVAs for easy bank transfers. Webhooks ensure payments are verified and reconciled automatically.",
   },
   {
-    title: "AI Driven Production",
+    title: "Sessions, timers & expiries",
     description:
-      "Harness the power of artificial intelligence to predict, optimize, and enhance every aspect of your production line.",
+      "Start timed sessions at check-in, push expiry warnings, and extend sessions — all server-authoritative for accurate billing.",
   },
 ];
 
@@ -78,14 +78,14 @@ export const Benefits = () => {
           {/* Right Side - Benefits List */}
           <div className="animate-slide-up">
             <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Key Benefits of Our System
+              Built for workspace owners
               <span className="block text-primary mt-2">
-                for Your Business Efficiency
+                check-ins, payments & reconciliation
               </span>
             </h2>
             <p className="text-lg text-muted-foreground mb-10">
-              We deliver measurable results that drive your business forward
-              with cutting-edge technology
+              Simple, auditable workflows so your sales team can process
+              walk-ins fast and your accounting always matches the bank.
             </p>
 
             <div className="space-y-6">

@@ -7,17 +7,21 @@ export const CTA = () => {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto animate-fade-in">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            From Idea to Production in Days
+            Start managing walk-ins and subscriptions today
           </h2>
           <p className="text-lg opacity-90 mb-10 leading-relaxed">
-            Start your manufacturing journey today with our expert team. We'll
-            help you transform your vision into reality with cutting-edge
-            technology and proven processes.
+            Try Stack-Station free for 14 days or request a guided demo — see
+            how timed check-ins, DVA payments and reports simplify daily
+            reconciliation.
           </p>
-          <Button variant="accent" size="lg" className="group shadow-2xl">
-            Book a Demo
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          <div className="flex gap-4 justify-center">
+            <Button variant="accent" size="lg" className="group shadow-2xl">
+              Start Free Trial
+            </Button>
+            <Button variant="outline" size="lg" className="group">
+              Request Demo
+            </Button>
+          </div>
         </div>
       </div>
     </section>
