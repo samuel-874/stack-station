@@ -72,7 +72,7 @@ export const Hero = () => {
             id="hero-heading"
             className="text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-14 tracking-tight"
           >
-            Manage Your Workspaces
+            Manage Your Workspace
             <span className="block mt-2">
               Reservations, timed check-ins & reliable reconciliation
             </span>
@@ -148,53 +148,39 @@ export const Hero = () => {
             />
           </div>
 
-          {/* 100+ Card */}
+          {/* Automated Billing Card */}
           <div className="w-full lg:w-52 h-70 bg-primary text-primary-foreground rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-center items-center text-center flex-shrink-0">
-            <div className="text-6xl font-bold mb-4" aria-label="100 plus">
-              100+
-            </div>
+            <TrendingUp
+              className="w-12 h-12 mb-4 opacity-90"
+              aria-hidden="true"
+            />
             <div className="text-base opacity-90 leading-relaxed">
-              Active Workspace Partners
+              Automated Billing & Payment Reconciliation
             </div>
           </div>
 
-          {/* 1951+ Card */}
-          <div className="w-full lg:w-72 h-60 bg-card border border-border rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col flex-shrink-0">
+          {/* Timed Sessions Card */}
+          <div className="w-full lg:w-72 h-60 bg-card border border-border rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-center items-center text-center flex-shrink-0">
             <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-secondary mb-6">
               <FileText
                 className="w-6 h-6 text-secondary-foreground"
                 aria-hidden="true"
               />
             </div>
-            <div className="text-sm text-muted-foreground mb-2 flex items-center gap-2">
-              Total Sessions Managed
-              <span
-                className="w-5 h-5 rounded-full bg-foreground/10 flex items-center justify-center text-xs font-semibold"
-                aria-label="Information"
-              >
-                i
-              </span>
-              <span className="font-semibold">+8%</span>
+            <div className="text-xl font-semibold text-foreground mb-3">
+              Real-Time Session Management
             </div>
-            <div
-              className="text-5xl font-bold text-foreground mb-4"
-              aria-label="1951 plus"
-            >
-              1951+
-            </div>
-            <div className="text-sm text-muted-foreground mt-auto">
-              Growth of <span className="text-accent font-semibold">126</span>{" "}
-              this month
+            <div className="text-sm text-muted-foreground leading-relaxed">
+              Track desk occupancy with automatic timers and expiry
+              notifications
             </div>
           </div>
 
-          {/* 6+ Card */}
+          {/* DVA Payments Card */}
           <div className="w-full lg:w-52 h-70 bg-secondary text-secondary-foreground rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-center items-center text-center flex-shrink-0">
-            <div className="text-6xl font-bold mb-4" aria-label="6 plus">
-              6+
-            </div>
+            <BarChart3 className="w-12 h-12 mb-4" aria-hidden="true" />
             <div className="text-base leading-relaxed">
-              Years Serving Nigerian Workspaces
+              Card & DVA Payment Support
             </div>
           </div>
 

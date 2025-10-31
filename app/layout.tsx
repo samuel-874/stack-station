@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "../components/ui/toaster";
+import { Providers } from "@/components/providers";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -113,8 +114,10 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//js.paystack.co" />
       </head>
       <body className={`${roboto.variable} ${robotoMono.variable} antialiased`}>
-        {children}
-        <Toaster />
+        <Providers>
+          {children}
+          <Toaster />
+        </Providers>
       </body>
     </html>
   );

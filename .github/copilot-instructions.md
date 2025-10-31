@@ -19,7 +19,7 @@ agent_ready: true
 
 > **Purpose / Overview (AI-Agent friendly)**
 >
-> Stack-Station is a SaaS product that enables Nigerian co-working and workstation owners to manage **time-based desk/room rentals**, **reservations**, **check-ins**, and **subscription billing** with strong reconciliation and security using **Paystack (card + DVA)**. This guide is written for engineers, product owners, and AI agents that will implement, maintain, or automate Stack-Station.
+> Stack-Station is a SaaS product that enables Nigerian co-working and workstation owners to manage **time-based desk/room rentals**, **reservations**, **check-ins**, and **subscription billing** . This guide is written for engineers, product owners, and AI agents that will implement, maintain, or automate Stack-Station.
 
 ---
 
@@ -33,7 +33,6 @@ agent_ready: true
    * Landing Page & Onboarding flow
    * Admin Portal (Workstation Owner)
    * Sales Rep / Cashier Portal
-   * Physical Context: Walk-in users (not a system role)
 4. Core Workflows (step-by-step)
 5. Payment & DVA flows (detailed technical)
 6. Data model (Prisma examples)
@@ -43,7 +42,6 @@ agent_ready: true
 10. Security & compliance
 11. UI/UX and accessibility notes
 12. Deployment (Vercel) & infra notes
-13. AI Agent: build checklist & automation tasks
 14. Testing & acceptance criteria
 15. Appendix: SQL snippets, sample webhooks, and wireframe notes
 

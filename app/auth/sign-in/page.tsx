@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,13 +9,33 @@ import Link from "next/link";
 import Image from "next/image";
 import space from "@/public/office.jpg";
 import { signIn } from "next-auth/react";
+import { useSearchParams } from "next/navigation";
 
 export default function SignInPage() {
   const { toast } = useToast();
+  const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const error = searchParams.get("error");
+    if (error === "OAuthAccountNotLinked") {
+      toast({
+        title: "Account linking error",
+        description:
+          "This email is already registered with a different sign-in method. Please use your email and password to sign in.",
+        variant: "destructive",
+      });
+    } else if (error) {
+      toast({
+        title: "Authentication error",
+        description: "Unable to sign in. Please try again.",
+        variant: "destructive",
+      });
+    }
+  }, [searchParams, toast]);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,23 +46,31 @@ export default function SignInPage() {
         email,
         password,
       });
-      if ((res as any)?.error) throw new Error((res as any).error);
-      toast({ title: "Signed in", description: "Welcome back." });
-      window.location.href = "/";
+
+      if (res?.error) {
+        throw new Error(res.error);
+      }
+
+      if (res?.ok) {
+        toast({ title: "Signed in", description: "Welcome back." });
+        window.location.href = "/auth/post-login";
+      }
     } catch (err: any) {
       toast({
         title: "Sign-in failed",
-        description: err?.message || "Unable to sign in",
+        description:
+          err?.message === "CredentialsSignin"
+            ? "Invalid email or password"
+            : err?.message || "Unable to sign in",
         variant: "destructive",
       });
-    } finally {
       setLoading(false);
     }
   };
 
   const onGoogle = async () => {
     try {
-      await signIn("google", { callbackUrl: "/" });
+      await signIn("google", { callbackUrl: "/auth/post-login" });
     } catch (err: any) {
       toast({
         title: "Google sign-in failed",
@@ -53,7 +81,7 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen max-h-screen overflow-hidden flex">
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-background">
         <div className="w-full max-w-md space-y-8">
           <div className="flex items-center gap-3">

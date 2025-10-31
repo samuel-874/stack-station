@@ -39,7 +39,7 @@ export default function SignUpPage() {
         redirect: true,
         email,
         password,
-        callbackUrl: "/onboard/workstation",
+        callbackUrl: "/auth/post-login",
       });
     } catch (err: any) {
       toast({
@@ -54,7 +54,7 @@ export default function SignUpPage() {
 
   const onGoogle = async () => {
     try {
-      await signIn("google", { callbackUrl: "/onboard/workstation" });
+      await signIn("google", { callbackUrl: "/auth/post-login" });
     } catch (err: any) {
       toast({
         title: "Google sign-in failed",

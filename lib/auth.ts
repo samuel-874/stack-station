@@ -32,15 +32,61 @@ export const authOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     }),
   ],
-  session: { strategy: "database" },
+  session: { strategy: "jwt" },
+  pages: {
+    signIn: "/auth/sign-in",
+    error: "/auth/sign-in",
+  },
   callbacks: {
-    async session({ session, user }: { session: any; user: any }) {
+    async jwt({ token, user, trigger, session: updateSession }: any) {
+      // On sign in, attach user data to token
       if (user) {
-        session.user = {
-          id: (user as any).id,
-          name: user.name,
-          email: user.email,
-        };
+        token.id = user.id;
+        token.email = user.email;
+        token.name = user.name;
+        // Fetch full user data from DB to get role and workspaceId
+        const dbUser = await prisma.user.findUnique({
+          where: { email: user.email },
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            role: true,
+            workspaceId: true,
+          },
+        });
+        if (dbUser) {
+          token.role = dbUser.role;
+          token.workspaceId = dbUser.workspaceId;
+        }
+      }
+      // On session update (e.g., after onboarding), refresh from DB
+      if (trigger === "update") {
+        const dbUser = await prisma.user.findUnique({
+          where: { email: token.email as string },
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            role: true,
+            workspaceId: true,
+          },
+        });
+        if (dbUser) {
+          token.role = dbUser.role;
+          token.workspaceId = dbUser.workspaceId;
+        }
+      }
+      return token;
+    },
+    async session({ session, token }: any) {
+      // Attach token data to session
+      if (token && session.user) {
+        session.user.id = token.id;
+        session.user.email = token.email;
+        session.user.name = token.name;
+        session.user.role = token.role;
+        session.user.workspaceId = token.workspaceId;
       }
       return session;
     },

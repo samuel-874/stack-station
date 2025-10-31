@@ -18,7 +18,7 @@ export const CTA = () => {
             <Button variant="accent" size="lg" className="group shadow-2xl">
               Start Free Trial
             </Button>
-            <Button variant="outline" size="lg" className="group">
+            <Button variant="secondary" size="lg" className="group">
               Request Demo
             </Button>
           </div>
